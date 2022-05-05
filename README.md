@@ -11,7 +11,7 @@
 ## 使用
 
 ```sh
-react-native init MyApp --template react-native-template-ysui
+react-native init MyApp --template https://github.com/acigacn/react-native-template-ysui
 ```
 
 ## 内置的三方库
