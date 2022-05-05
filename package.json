@@ -1,0 +1,20 @@
+{
+  "name": "react-native-template-ysui",
+  "version": "1.0.0",
+  "description": "react-native基础模板",
+  "main": "index.js",
+  "author": "thomas tang",
+  "private": "true",
+  "license": "ISC",
+  "scripts": {
+    "cz": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  }
+}
