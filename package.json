@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "react-native基础模板",
   "main": "index.js",
-  "author": "thomas tang",
+  "author": "aciga tech",
   "private": "true",
   "license": "ISC",
+  "files": [
+    "template",
+    "template.config.js"
+  ],
   "scripts": {
     "cz": "cz"
   },
