@@ -37,8 +37,7 @@ export default class HomePage extends BasePage {
     );
   };
 
-  render() {
-    console.log('数据长度：', mockData.length);
-    return <FlatList style={{flex: 1}} data={mockData} windowSize={3} initialNumToRender={10} renderItem={this.renderItem} />;
+  renderContent() {
+    return <FlatList data={mockData} windowSize={3} initialNumToRender={10} renderItem={this.renderItem} />;
   }
 }

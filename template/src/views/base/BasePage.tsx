@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+// import {SafeAreaView} from 'react-native-safe-area-context';
 
 export default class BasePage extends React.Component {
   constructor(props) {
@@ -7,12 +8,15 @@ export default class BasePage extends React.Component {
     this.state = {};
   }
 
+  /**
+   * 子类去覆盖
+   */
+  renderContent(): React.ReactNode {
+    throw new Error('Method renderContent not implemented.');
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>this is Home</Text>
-      </View>
-    );
+    return <View style={styles.container}>{this.renderContent()}</View>;
   }
 }
 

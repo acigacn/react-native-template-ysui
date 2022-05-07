@@ -4,7 +4,8 @@ export const styles = StyleSheet.create({
   itemContainerStyle: {
     flex: 1,
     flexDirection: 'column',
-    padding: 15,
+    paddingHorizontal: 15,
+    marginTop: 20,
   },
   textContainerStyle: {
     flex: 1,
