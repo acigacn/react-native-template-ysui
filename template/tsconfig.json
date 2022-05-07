@@ -20,6 +20,7 @@
     "downlevelIteration": true,
     // 自定义路径别名，以方便文件统一引入及规范
     "paths": {
+      "@api/*": ["./api/*"],
       "@confs/*": ["./configs/*"],
       "@comms/*": ["./common/*"],
       "@comps/*": ["./components/*"],
