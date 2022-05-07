@@ -1,24 +1,20 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, useColorScheme, View} from 'react-native';
+import Views from '@views/index';
 
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
-    <SafeAreaView style={styles.appContainer}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName={'HomePage'}>
+        <Stack.Screen name="HomePage" component={Views.HomePage} />
+        <Stack.Screen name="SettingsPage" component={Views.SettingsPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    paddingHorizontal: 15,
-    backgroundColor: 'green',
-  },
-});
 
 export default App;
