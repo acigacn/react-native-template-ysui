@@ -13,7 +13,7 @@ export default class HomePage extends BasePage {
 
   onPress(data) {
     console.log('onPress', data.item);
-    this.props.navigation.navigate('ContactDetail', data.item);
+    this.props.navigation.navigate('SettingsPage', data.item);
   }
 
   renderItem = data => {
