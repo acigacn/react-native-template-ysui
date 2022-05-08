@@ -1,36 +1,8 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  itemContainerStyle: {
+  pageContainer: {
     flex: 1,
-    flexDirection: 'column',
-    paddingHorizontal: 15,
-    marginTop: 20,
-  },
-  textContainerStyle: {
-    flex: 1,
-    alignItems: 'flex-start',
-  },
-  imageStyle: {
-    width: 300,
-    height: 300,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'red',
-    marginTop: 15,
-  },
-  description: {
-    fontSize: 18,
-    color: 'green',
-    marginTop: 20,
-    lineHeight: 26,
-  },
-  moreDesc: {
-    fontSize: 16,
-    color: 'blue',
-    marginTop: 20,
-    lineHeight: 26,
+    backgroundColor: 'green',
   },
 });

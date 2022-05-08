@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import {BasePageProps, BasePageState} from './types';
 // import {SafeAreaView} from 'react-native-safe-area-context';
 
-export default class BasePage extends React.Component {
+export default class BasePage extends React.Component<BasePageProps, BasePageState> {
   constructor(props) {
     super(props);
     this.state = {};
