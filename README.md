@@ -10,8 +10,19 @@
 
 ## 使用
 
+### 初始化项目
+
 ```sh
 react-native init MyApp --template https://github.com/acigacn/react-native-template-ysui
+```
+
+### 优化开发环境
+
+```sh
+git init
+
+# 使得编码检查和格式化在提交代码前自动修复
+./scripts/InitDevEnv.sh
 ```
 
 ## 内置的三方库

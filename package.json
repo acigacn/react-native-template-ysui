@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "cz": "cz",
-    "lint": "cd template && yarn run lint --fix"
+    "lint": "cd template && yarn run lint"
   },
   "config": {
     "commitizen": {

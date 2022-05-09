@@ -1,0 +1,28 @@
+# ide
+.vscode/*
+.idea/*
+
+# native projects
+.bundle
+android
+ios
+
+# module scripts
+scripts/
+node_modules/
+
+# dependencies
+package.json
+package-lock.json
+yarn.lock
+
+# resources
+asstes/
+
+# builds
+dist/
+.dist/
+build/
+build/
+out/
+output/
