@@ -11,7 +11,8 @@
     "template.config.js"
   ],
   "scripts": {
-    "cz": "cz"
+    "cz": "cz",
+    "test": "echo hello-test"
   },
   "config": {
     "commitizen": {
