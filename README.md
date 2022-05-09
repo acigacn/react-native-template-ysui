@@ -22,7 +22,8 @@ react-native init MyApp --template https://github.com/acigacn/react-native-templ
 git init
 
 # 使得编码检查和格式化在提交代码前自动修复
-./scripts/InitDevEnv.sh
+cd scripts/
+./InitDevEnv.sh
 ```
 
 ## 内置的三方库
