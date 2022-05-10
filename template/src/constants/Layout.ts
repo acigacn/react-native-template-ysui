@@ -9,6 +9,4 @@ export default {
     height,
   },
   isSmallDevice: width < 375,
-  // 导航栏按钮横向边距
-  navBarHSpace: 13,
 };

@@ -12,7 +12,21 @@ const generateStackScreens = () => {
 };
 
 const AppNavContainer = () => {
-  return <Stack.Navigator initialRouteName={rootPage}>{generateStackScreens()}</Stack.Navigator>;
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        title: '零洞',
+        headerTransparent: true,
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          // fontSize: 16,
+        },
+      }}
+      initialRouteName={rootPage}>
+      {generateStackScreens()}
+    </Stack.Navigator>
+  );
 };
 
 export default AppNavContainer;

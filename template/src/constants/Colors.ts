@@ -1,4 +1,4 @@
-const tintColor = '#2f95dc';
+const tintColor = '#1E90FF';
 
 /**
  * App整体配色
