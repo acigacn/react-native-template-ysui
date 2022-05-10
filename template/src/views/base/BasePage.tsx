@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {BasePageProps, BasePageState} from './types';
-// import {SafeAreaView} from 'react-native-safe-area-context';
+import AppStatusBar from '@comms/widgets/AppStatusBar';
 
 export default class BasePage extends React.Component<BasePageProps, BasePageState> {
   constructor(props) {
@@ -65,7 +65,12 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
   }
 
   render() {
-    return <View style={styles.container}>{this.renderContent()}</View>;
+    return (
+      <>
+        <AppStatusBar />
+        <View style={styles.container}>{this.renderContent()}</View>
+      </>
+    );
   }
 }
 
