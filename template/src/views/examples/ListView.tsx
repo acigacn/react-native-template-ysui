@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Text, View, Image, TouchableHighlight, StyleSheet} from 'react-native';
+import {FlatList, Text, View, Image, TouchableHighlight, StyleSheet, StatusBar} from 'react-native';
 import BasePage from '@views/base/BasePage';
 
 import mockData from '@mock/mock';
@@ -10,8 +10,25 @@ export default class ListViewDemo extends BasePage {
     this.state = {};
   }
 
+  componentDidMount() {
+    console.log('ListView componentDidMount ++++++++++++++++');
+    this.props.navigation.setOptions({
+      title: '零洞空间',
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    });
+  }
+
+  componentWillUnmount() {
+    console.log('ListView componentWillUnmount ---------------');
+  }
+
   onPress(data) {
-    console.log('onPress', data.item);
     this.props.navigation.push('ListDetailDemo', data.item);
   }
 
@@ -37,7 +54,12 @@ export default class ListViewDemo extends BasePage {
   };
 
   renderContent() {
-    return <FlatList data={mockData} windowSize={3} initialNumToRender={10} renderItem={this.renderItem} />;
+    return (
+      <>
+        <StatusBar barStyle="light-content" backgroundColor="#f4511e" animated={true} />
+        <FlatList data={mockData} windowSize={3} initialNumToRender={10} renderItem={this.renderItem} />
+      </>
+    );
   }
 }
 
