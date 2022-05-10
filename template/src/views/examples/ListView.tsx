@@ -1,8 +1,7 @@
 import React from 'react';
 import {FlatList, Text, View, Image, TouchableHighlight, StyleSheet, StatusBar} from 'react-native';
 import BasePage from '@views/base/BasePage';
-
-import mockData from '@mock/mock';
+import mockData from './mockList';
 
 export default class ListViewDemo extends BasePage {
   constructor(props) {
