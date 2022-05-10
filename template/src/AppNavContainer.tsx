@@ -11,8 +11,8 @@ const generateStackScreens = () => {
   });
 };
 
-const NavigationContainer = () => {
+const AppNavContainer = () => {
   return <Stack.Navigator initialRouteName={rootPage}>{generateStackScreens()}</Stack.Navigator>;
 };
 
-export default NavigationContainer;
+export default AppNavContainer;
