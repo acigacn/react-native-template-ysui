@@ -5,12 +5,16 @@ import SettingsPage from './settings';
 import ListViewDemo from './examples/ListView';
 import ListDetailDemo from './examples/ListDetail';
 
-export const rootPage = 'ListViewDemo';
-
-export default {
-  HomePage,
-  SettingsPage,
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const demoPages = {
   ListViewDemo,
   ListDetailDemo,
+};
+
+export const rootPage = 'HomePage';
+
+export default {
+  // ...demoPages,
+  HomePage,
+  SettingsPage,
 };
