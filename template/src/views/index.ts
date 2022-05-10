@@ -5,7 +5,7 @@ import SettingsPage from './settings';
 import ListViewDemo from './examples/ListView';
 import ListDetailDemo from './examples/ListDetail';
 
-export const rootPage = 'ListViewDemo';
+export const rootPage = 'HomePage';
 
 export default {
   HomePage,
