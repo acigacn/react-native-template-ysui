@@ -8,7 +8,6 @@ android
 ios
 
 # module scripts
-scripts/
 node_modules/
 
 # dependencies

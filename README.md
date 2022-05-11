@@ -16,15 +16,23 @@
 react-native init MyApp --template https://github.com/acigacn/react-native-template-ysui
 ```
 
-### 优化开发环境
+### 开发 & 打包
 
 ```sh
-git init
-
 # 使得编码检查和格式化在提交代码前自动修复
-cd scripts/
-./InitDevEnv.sh
+yarn run dev:init
+
+# 打js bundle包
+yarn run build:all
 ```
+
+### asstes
+
+本地图片等资源型文件，如果一定要放本地图，请务必先去压缩：https://tinypng.com/
+
+- img：本地图片资源，用本地图前先想想能否通过http引用，是不是必须要放在本地
+- json：预留资源，如lottie动画资源描述文件
+
 
 ## 内置的三方库
 
@@ -47,4 +55,3 @@ cd scripts/
 ## 最佳实践
 
 - 字体库原生端集成：https://jishuin.proginn.com/p/763bfbd62a97
-
