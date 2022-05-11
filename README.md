@@ -45,5 +45,5 @@ cd scripts/
 
 ## 最佳实践
 
-todo...
+- 字体库原生端集成：https://jishuin.proginn.com/p/763bfbd62a97
 
