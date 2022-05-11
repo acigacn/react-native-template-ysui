@@ -2,16 +2,14 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {BasePageProps, BasePageState} from './types';
 import AppStatusBar from '@comms/widgets/AppStatusBar';
-import {BarHeaderTitle, BarBackButton, BarSettingButton} from '@comms/NavigationHeaderBar';
+import {BarBackButton} from '@comms/NavigationHeaderBar';
 
 export default class BasePage extends React.Component<BasePageProps, BasePageState> {
   constructor(props) {
     super(props);
     this.state = {};
     this.props.navigation.setOptions({
-      headerTitle: this.renderHeaderTitle,
       headerLeft: this.renderHeaderLeft,
-      headerRight: this.renderHeaderRight,
     });
   }
 
@@ -31,9 +29,6 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
    */
   backToRoot = () => {
     this.props.navigation.popToTop();
-  };
-  onHeaderRightPress = () => {
-    alert('设置页还没开发');
   };
 
   // ------------------------ 统一处理页面打开 ----------------------------------------
@@ -56,14 +51,8 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
   };
 
   // ------------------------ 自定义视图 ----------------------------------------
-  renderHeaderTitle = (props): React.ReactNode => {
-    return <BarHeaderTitle {...props} />;
-  };
   renderHeaderLeft = (): React.ReactNode => {
     return <BarBackButton onPress={this.back} />;
-  };
-  renderHeaderRight = (): React.ReactNode => {
-    return <BarSettingButton onPress={this.onHeaderRightPress} />;
   };
 
   /**
