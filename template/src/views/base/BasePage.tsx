@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {BasePageProps, BasePageState} from './types';
 import AppStatusBar from '@comms/widgets/AppStatusBar';
 import {BarBackButton} from '@comms/NavigationHeaderBar';
+import {BasePageProps, BasePageState, PageOptions} from './types';
+import NavigatorHelper from '@helps/NavigatorHelper';
 
 export default class BasePage extends React.Component<BasePageProps, BasePageState> {
   constructor(props) {
@@ -13,41 +14,18 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
     });
   }
 
-  // ------------------------ 统一处理页面返回 ----------------------------------------
-  /**
-   * 返回上一级页面，如果RN栈返回到根了，则直接退出RN插件
-   */
+  // ------------------------ 统一处理页面溃退、打开、替换 --------------------------------------
   back = () => {
-    if (this.props.navigation.canGoBack()) {
-      return this.props.navigation.goBack();
-    }
-    // TODO. 调用原生返回
-    console.log('原生返回,退出RCTViewController');
+    NavigatorHelper.backPage();
   };
-  /**
-   * 返回至RN栈根
-   */
   backToRoot = () => {
-    this.props.navigation.popToTop();
+    NavigatorHelper.backToRootPage();
   };
-
-  // ------------------------ 统一处理页面打开 ----------------------------------------
-  openPage = (name: string, params?: object | undefined, multimes?: boolean) => {
-    this.openPageFromUrl(name, params, multimes);
+  openPage = (page: string, params?: object, options?: PageOptions) => {
+    NavigatorHelper.openPage(page, params, options);
   };
-  openPageFromUrl = (url: string, params?: object | undefined, multimes?: boolean) => {
-    if (multimes) {
-      return this.props.navigation.navigate('', params);
-    }
-    return this.props.navigation.push('', params);
-  };
-
-  // ------------------------ 统一处理页面替换 ----------------------------------------
-  replacePage = (name: string, params?: object | undefined) => {
-    this.replacePageFromUrl(name, params);
-  };
-  replacePageFromUrl = (url: string, params?: object | undefined) => {
-    this.props.navigation.replace(url, params);
+  replacePage = (page: string, params?: object) => {
+    NavigatorHelper.replacePage(page, params);
   };
 
   // ------------------------ 自定义视图 ----------------------------------------

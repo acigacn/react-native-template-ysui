@@ -3,13 +3,15 @@ import {Callback} from '@conts/Types';
 
 const CommonBridgeModule = NativeModules.CommonBridgeModule;
 
+console.log('CommonBridgeModule ======>', CommonBridgeModule);
+
 /**
  * 原生导出的方法，以供调用原生端能力
  */
 const CommonBridge = {
-  deviceId: CommonBridgeModule.deviceId,
-  userAgent: CommonBridgeModule.userAgent,
-  bundlePath: CommonBridgeModule.bundlePath,
+  // deviceId: CommonBridgeModule.deviceId,
+  // userAgent: CommonBridgeModule.userAgent,
+  // bundlePath: CommonBridgeModule.bundlePath,
 
   isAndroid() {
     return Platform.OS === 'android';
@@ -23,11 +25,15 @@ const CommonBridge = {
     return Platform.OS === 'web';
   },
 
-  pageOpen(url: string, cb: Callback) {
-    CommonBridgeModule.pageOpen(url, cb);
+  pageOpen(page: any, cb?: Callback) {
+    if (CommonBridgeModule.pageOpen) {
+      CommonBridgeModule.pageOpen(page.url, cb);
+    }
   },
-  pageBack(instance: any, cb: Callback) {
-    CommonBridgeModule.pageBack('' + instance, cb);
+  pageBack(page: any, cb?: Callback) {
+    if (CommonBridgeModule.pageBack) {
+      CommonBridgeModule.pageBack('' + page.instance, cb);
+    }
   },
 };
 

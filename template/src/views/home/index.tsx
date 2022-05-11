@@ -15,8 +15,7 @@ export default class HomePage extends BasePage {
   }
 
   onHeaderRightPress = () => {
-    // this.openPage('');
-    this.props.navigation.push('SettingsPage');
+    this.openPage('SettingsPage');
   };
 
   renderHeaderTitle = (props): React.ReactNode => {

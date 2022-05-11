@@ -11,3 +11,7 @@ export interface BasePageState {
   dataLoadState?: -1 | 0 | 1;
   isConnected?: boolean;
 }
+
+export interface PageOptions {
+  multimes?: boolean;
+}
