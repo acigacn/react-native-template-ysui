@@ -1,37 +1,30 @@
-import ZocialIcon from 'react-native-vector-icons/Zocial';
-import OcticonIcon from 'react-native-vector-icons/Octicons';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Ionicon from 'react-native-vector-icons/Ionicons';
-import FoundationIcon from 'react-native-vector-icons/Foundation';
-import EvilIcon from 'react-native-vector-icons/EvilIcons';
-import EntypoIcon from 'react-native-vector-icons/Entypo';
-import FAIcon from 'react-native-vector-icons/FontAwesome';
-import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default type => {
-  switch (type) {
-    case 'zocial':
-      return ZocialIcon;
-    case 'octicon':
-      return OcticonIcon;
-    case 'material':
-      return MaterialIcon;
-    case 'material-community':
-      return MaterialCommunityIcon;
-    case 'ionicon':
-      return Ionicon;
-    case 'foundation':
-      return FoundationIcon;
-    case 'evilicon':
-      return EvilIcon;
-    case 'entypo':
-      return EntypoIcon;
-    case 'font-awesome':
-      return FAIcon;
-    case 'simple-line-icon':
-      return SimpleLineIcon;
+export const enum FontType {
+  antDesign = 'AntDesign',
+  ionicons = 'Ionicons',
+  evilIcons = 'EvilIcons',
+  materialIcons = 'MaterialIcons',
+  materialCommunityIcons = 'MaterialCommunityIcons',
+}
+
+export default (font: FontType) => {
+  switch (font) {
+    case FontType.antDesign:
+      return AntDesign;
+    case FontType.ionicons:
+      return Ionicons;
+    case FontType.evilIcons:
+      return EvilIcons;
+    case FontType.materialIcons:
+      return MaterialIcons;
+    case FontType.materialCommunityIcons:
+      return MaterialCommunityIcons;
     default:
-      return MaterialIcon;
+      return Ionicons;
   }
 };

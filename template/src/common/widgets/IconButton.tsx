@@ -1,8 +1,13 @@
 import React from 'react';
 import {View, TouchableHighlight} from 'react-native';
 import PropTypes from 'prop-types';
-import IconType from '@conts/IconType';
+import IconType, {FontType} from '@conts/IconType';
 
+/**
+ * 字体图标按钮
+ * @param props name: https://oblador.github.io/react-native-vector-icons/
+ * @returns TouchableHighlight
+ */
 const IconButton = props => {
   const {name, color, size, style, onPress, type, disabled} = props;
   const Icon = IconType(type);
@@ -21,12 +26,12 @@ IconButton.propTypes = {
   style: PropTypes.object,
   onPress: PropTypes.func,
   disabled: PropTypes.bool,
-  type: PropTypes.oneOf(['zocial', 'octicon', 'material', 'material-community', 'ionicon', 'foundation', 'evilicon', 'entypo', 'font-awesome', 'simple-line-icon']),
+  type: PropTypes.string,
 };
 
 IconButton.defaultProps = {
   disabled: false,
-  type: 'ionicon',
+  type: FontType.ionicons,
 };
 
 export default IconButton;

@@ -1,26 +1,36 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import IconButton from './widgets/IconButton';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import {FontType} from '@conts/IconType';
 
 export const BarHeaderTitle = (props: any) => {
-  console.log('BarHeaderTitle props:', props);
   return (
     <View style={styles.headerContainer}>
       <Text style={styles.headerTitle} numberOfLines={1}>
-        卧室温湿度
+        {props.title}
       </Text>
-      <Text style={styles.headerSubtitle}>已连接蓝牙网关</Text>
+      <Text style={styles.headerSubtitle}>{props.subtitle}</Text>
     </View>
   );
 };
 
 export const BarBackButton = (props: any) => {
-  return <IconButton name={'ios-arrow-back'} style={styles.backBtn} onPress={props.onPress} />;
+  return <IconButton type={FontType.materialIcons} name={'keyboard-backspace'} style={styles.backBtn} onPress={props.onPress} />;
 };
 
 export const BarSettingButton = (props: any) => {
-  return <IconButton name={'ios-arrow-back'} style={styles.setBtn} onPress={props.onPress} />;
+  return <IconButton type={FontType.materialCommunityIcons} name={'dots-vertical'} style={styles.setBtn} onPress={props.onPress} />;
+};
+
+BarHeaderTitle.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+};
+
+BarHeaderTitle.defaultProps = {
+  title: '卧室温湿度',
+  subtitle: '已连接蓝牙网关',
 };
 
 const styles = StyleSheet.create({
