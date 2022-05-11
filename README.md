@@ -34,6 +34,7 @@ cd scripts/
 | [react-native-fast-image](https://github.com/DylanVann/react-native-fast-image) | ^8.5.11  | 可完全替代官方原生Image标签，具有图片自动缓存功能 |
 | [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler) | ^2.4.1  | 手势库，在React Native中构建最佳的基于触摸的体验  |
 | [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) | ^2.8.0 | 动画库，提高复杂动画性能                          |
+| [lottie-react-native](https://github.com/lottie-react-native/lottie-react-native) | ^5.1.1  | 动画库                   
 | [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) | ^9.1.0  | 字体图标库                                        
 | [react-native-linear-gradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient)                      | ^2.5.6 | 渐变色                           |
 | [axios](https://github.com/axios/axios)                      | ^0.27.2 | 基于Promise的http请求库                           |
