@@ -1,19 +1,23 @@
 const shell = require('shelljs');
-const path = require('path');
 const fs = require('fs');
 
 function buildBundle(platform, appName) {
-  const bundleName = `${appName}-${platform}.bundle`;
-  shell.exec(`react-native bundle --reset-cache --platform ${platform} --dev false --entry-file index.js --bundle-output ${bundleName}`);
-  shell.exec(`zip -q -r ${appName}-${platform}.zip ${bundleName} asstes/`);
-  shell.rm(bundleName);
-  shell.mv(`${appName}-${platform}.zip`, 'out/');
+  const bundleName = `${appName}.bundle`;
+  const platformOut = `out/${platform}/`;
+  // 清理旧的构建文件
+  shell.rm('-rf', platformOut);
+  shell.mkdir('-p', platformOut);
+  // 打RN 
+  shell.exec(`react-native bundle --reset-cache --entry-file index.js --platform ${platform} --assets-dest ${platformOut}  --bundle-output ${platformOut}${bundleName} --dev false`);
+  // 整合资源打压缩包
+  shell.exec(`zip -q -r ${appName}.${platform}.zip ${platformOut}* res/*`);
+  shell.echo(`( ＾∀＾）／恭喜＼( ＾∀＾） ${bundleName}打包完成 ！`);
 }
 
 function main() {
   let appName = 'app';
 
-  const appJson = path.join(__dirname, '../app.json');
+  const appJson = 'app.json';
 
   if (!fs.existsSync(appJson)) {
     shell.echo('app.json 文件不存在，bundle文件将以默认 app.bundle 命名！');
@@ -25,11 +29,14 @@ function main() {
       }
     } catch (error) {
       console.warn(error.message);
+      shell.exit(1);
     }
   }
   ['ios', 'android'].forEach(platform => {
     buildBundle(platform, appName);
   });
+  shell.echo('打包完成，压缩包在out目录中...');
+  shell.exec('open out/');
 }
 
 main();

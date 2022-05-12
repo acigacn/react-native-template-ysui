@@ -26,7 +26,9 @@ yarn run dev:init
 yarn run build:all
 ```
 
-### asstes
+### res
+
+> 避免跟框架自带目录重名，RN的资源目录用`res`。请勿随意更改
 
 本地图片等资源型文件，如果一定要放本地图，请务必先去压缩：https://tinypng.com/
 
