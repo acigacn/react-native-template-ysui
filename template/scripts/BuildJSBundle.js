@@ -5,9 +5,9 @@ const fs = require('fs');
 function buildBundle(platform, appName) {
   const bundleName = `${appName}-${platform}.bundle`;
   shell.exec(`react-native bundle --reset-cache --platform ${platform} --dev false --entry-file index.js --bundle-output ${bundleName}`);
-  shell.exec(`zip -q -r ${appName}-${platform}.zip ${bundleName} ../asstes/`);
-  shell.mv(`${appName}-${platform}.zip`, '../out');
+  shell.exec(`zip -q -r ${appName}-${platform}.zip ${bundleName} asstes/`);
   shell.rm(bundleName);
+  shell.mv(`${appName}-${platform}.zip`, 'out/');
 }
 
 function main() {
