@@ -8,7 +8,7 @@ function buildBundle(platform, appName) {
   shell.rm('-rf', platformOut);
   shell.mkdir('-p', platformOut);
   // 打RN Bundle
-  const cmd = `react-native bundle --reset-cache --entry-file index.js --platform ${platform} --assets-dest ${platformOut}  --bundle-output ${platformOut}${bundleName} --dev false`; 
+  const cmd = `react-native bundle --reset-cache --entry-file index.js --platform ${platform} --assets-dest ${platformOut}  --bundle-output ${platformOut}${bundleName} --dev false`;
   shell.echo(`执行${platform}打包：===>\n${cmd}`);
   shell.exec(cmd);
   // 整合资源打压缩包
