@@ -9,7 +9,7 @@ function buildBundle(platform, appName) {
   shell.mkdir('-p', platformOut);
   // 打RN Bundle
   const cmd = `react-native bundle --reset-cache --entry-file index.js --platform ${platform} --assets-dest ${platformOut}  --bundle-output ${platformOut}${bundleName} --dev false`;
-  shell.echo(`执行${platform}打包：===>\n${cmd}`);
+  shell.echo(`😼️ 执行${platform}打包：===>\n${cmd}`);
   shell.exec(cmd);
   // 整合资源打压缩包
   shell.cp('-r', 'res/', platformOut);
@@ -17,7 +17,7 @@ function buildBundle(platform, appName) {
   shell.exec(`zip -q -r ${appName}.${platform}.zip .`);
   shell.mv('*.zip', '../');
   shell.cd('../../');
-  shell.echo(`( ＾∀＾）／恭喜＼( ＾∀＾） ${bundleName}打包完成 ！`);
+  shell.echo(`👍🏻 ${appName}.${platform}.zip 打包完成,请将其上传至发版平台`);
 }
 
 function main() {
@@ -26,7 +26,7 @@ function main() {
   const appJson = 'app.json';
 
   if (!fs.existsSync(appJson)) {
-    shell.echo('app.json 文件不存在，bundle文件将以默认 app.bundle 命名！');
+    shell.echo('app.json 文件不存在,bundle文件将以默认 app.bundle 命名！');
   } else {
     try {
       const data = JSON.parse(fs.readFileSync(appJson, 'utf8'));
@@ -41,7 +41,7 @@ function main() {
   ['ios', 'android'].forEach(platform => {
     buildBundle(platform, appName);
   });
-  shell.echo('打包完成，压缩包在out目录中...');
+  shell.echo('打包完成,压缩包在out目录中... 👏🏻👏🏻👏🏻');
   shell.exec('open out/');
 }
 
