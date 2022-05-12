@@ -2,12 +2,16 @@ const shell = require('shelljs');
 const path = require('path');
 const fs = require('fs');
 
-function buildBundle(appName, platform) {
-  shell.exec(`react-native bundle --reset-cache --platform ${platform} --dev false --entry-file index.js --bundle-output ${appName}.bundle`);
+function buildBundle(platform, appName) {
+  const bundleName = `${appName}-${platform}.bundle`;
+  shell.exec(`react-native bundle --reset-cache --platform ${platform} --dev false --entry-file index.js --bundle-output ${bundleName}`);
+  shell.exec(`zip -q -r ${appName}-${platform}.zip ${bundleName} ../asstes/`);
+  shell.mv(`${appName}-${platform}.zip`, '../out');
+  shell.rm(bundleName);
 }
 
 function main() {
-  let bundleName = 'app';
+  let appName = 'app';
 
   const appJson = path.join(__dirname, '../app.json');
 
@@ -17,14 +21,14 @@ function main() {
     try {
       const data = JSON.parse(fs.readFileSync(appJson, 'utf8'));
       if (data && data.name) {
-        bundleName = data.name;
+        appName = data.name;
       }
     } catch (error) {
       console.warn(error.message);
     }
   }
   ['ios', 'android'].forEach(platform => {
-    buildBundle(platform, bundleName);
+    buildBundle(platform, appName);
   });
 }
 

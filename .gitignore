@@ -1,3 +1,9 @@
 node_modules/
 template/node_modules/
 template/ios/Pods
+
+# builds
+dist/
+.dist/
+out/
+output/
