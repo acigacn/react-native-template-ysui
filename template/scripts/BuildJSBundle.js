@@ -7,10 +7,14 @@ function buildBundle(platform, appName) {
   // 清理旧的构建文件
   shell.rm('-rf', platformOut);
   shell.mkdir('-p', platformOut);
-  // 打RN 
+  // 打RN Bundle
   shell.exec(`react-native bundle --reset-cache --entry-file index.js --platform ${platform} --assets-dest ${platformOut}  --bundle-output ${platformOut}${bundleName} --dev false`);
   // 整合资源打压缩包
-  shell.exec(`zip -q -r ${appName}.${platform}.zip ${platformOut}* res/*`);
+  shell.cp('-r', 'res/', platformOut);
+  shell.cd(platformOut);
+  shell.exec(`zip -q -r ${appName}.${platform}.zip .`);
+  shell.mv('*.zip', '../');
+  shell.cd('../../');
   shell.echo(`( ＾∀＾）／恭喜＼( ＾∀＾） ${bundleName}打包完成 ！`);
 }
 
