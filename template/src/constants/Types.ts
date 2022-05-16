@@ -5,4 +5,4 @@
 /**
  * 函数类型
  */
-export type Callback = (...args: any[]) => void;
+export type Callback = (...args: any[]) => any | undefined;

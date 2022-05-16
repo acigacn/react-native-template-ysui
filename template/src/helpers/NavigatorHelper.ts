@@ -1,6 +1,6 @@
 import * as RootNavigation from '@comms/RootNavigation';
 // import Constant from '@conts/Constant';
-// import CommonBridge from '@helps/CommonBridge';
+import {CommonBridge} from '@helps/LDAppBridge';
 
 export default {
   /**
@@ -11,7 +11,7 @@ export default {
       return RootNavigation.goBack();
     }
     console.log('原生返回,退出RCTViewController');
-    // CommonBridge.pageBack(null);
+    CommonBridge.back(null);
   },
   backToRootPage() {
     RootNavigation.popToTop();

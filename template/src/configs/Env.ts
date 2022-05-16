@@ -1,4 +1,4 @@
-import CommonBridge from '@helps/CommonBridge';
+import {CommonBridge} from '@helps/LDAppBridge';
 
 export default {
   /**
