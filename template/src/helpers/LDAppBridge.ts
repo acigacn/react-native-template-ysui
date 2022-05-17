@@ -86,15 +86,14 @@ export const CommonBridge = {
     }
   },
   /**
-   * 获取cookie
-   * @param  {[type]} name:string       [description]
-   * @param  {[type]} domain:string     [description]
-   * @param  {[type]} callback:Function [description]
-   * @return {[type]}                   [description]
+   * 根据name获取指定域名下的cookie
+   * @param name cookie名称
+   * @param domain 域名
+   * @param cb 回调
    */
-  getCookie(name, domain, callback) {
+  getCookie(name, domain, cb?: Callback) {
     if (CommonBridgeModule && CommonBridgeModule.getCookie) {
-      CommonBridgeModule.getCookie(name, domain, callback);
+      CommonBridgeModule.getCookie(name, domain, cb);
     }
   },
   /**
