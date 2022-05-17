@@ -5,12 +5,20 @@ import PropTypes from 'prop-types';
 import {FontType} from '@conts/IconType';
 
 export const BarHeaderTitle = (props: any) => {
+  const titleStyles = [styles.headerTitle];
+  if (props.titleStyles && typeof props.titleStyles === 'object') {
+    titleStyles.push(props.titleStyles);
+  }
+  const subTitleStyles = [styles.headerSubtitle];
+  if (props.subTitleStyles && typeof props.subTitleStyles === 'object') {
+    subTitleStyles.push(props.subTitleStyles);
+  }
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerTitle} numberOfLines={1}>
+      <Text style={titleStyles} numberOfLines={1}>
         {props.title}
       </Text>
-      {props.subtitle ? <Text style={styles.headerSubtitle}>{props.subtitle}</Text> : null}
+      {props.subtitle ? <Text style={subTitleStyles}>{props.subtitle}</Text> : null}
     </View>
   );
 };
@@ -26,6 +34,8 @@ export const BarSettingButton = (props: any) => {
 BarHeaderTitle.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  titleStyles: PropTypes.object,
+  subTitleStyles: PropTypes.object,
 };
 
 BarHeaderTitle.defaultProps = {

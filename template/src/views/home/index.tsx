@@ -20,7 +20,7 @@ export default class HomePage extends BasePage {
   };
 
   renderHeaderTitle = (props): React.ReactNode => {
-    return <BarHeaderTitle {...props} />;
+    return <BarHeaderTitle {...props} title={'XX智能设备'} subtitle={'蓝牙已连接'} subTitleStyles={{ color: 'green'}} />;
   };
   renderHeaderRight = (): React.ReactNode => {
     return <BarSettingButton color={'#222'} onPress={this.onHeaderRightPress} />;
