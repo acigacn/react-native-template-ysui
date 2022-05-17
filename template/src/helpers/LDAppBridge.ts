@@ -3,12 +3,13 @@ import {Callback} from '@conts/Types';
 
 const CommonBridgeModule = NativeModules.CommonBridgeModule;
 const UserBridgeModule = NativeModules.UserBridgeModule;
-// const DeviceBridgeModule = NativeModules.DeviceBridgeModule;
+const DeviceBridgeModule = NativeModules.DeviceBridgeModule;
 
 const getNonullProperty = (module: any, key: string): any => {
   if (module && module[key]) {
     return module[key];
   }
+  console.log('module or module.key is undefined=======>', module, key);
   return null;
 };
 
@@ -80,7 +81,7 @@ export const CommonBridge = {
    * @param {[type]} domain:string [description]
    */
   setCookie(name, value, domain) {
-    if (CommonBridgeModule.setCookie) {
+    if (CommonBridgeModule && CommonBridgeModule.setCookie) {
       CommonBridgeModule.setCookie(name, value, domain);
     }
   },
@@ -92,7 +93,7 @@ export const CommonBridge = {
    * @return {[type]}                   [description]
    */
   getCookie(name, domain, callback) {
-    if (CommonBridgeModule.getCookie) {
+    if (CommonBridgeModule && CommonBridgeModule.getCookie) {
       CommonBridgeModule.getCookie(name, domain, callback);
     }
   },
@@ -102,7 +103,7 @@ export const CommonBridge = {
    * @param domain 种cookie的域名
    */
   removeCookie(name, domain) {
-    if (CommonBridgeModule.removeCookie) {
+    if (CommonBridgeModule && CommonBridgeModule.removeCookie) {
       CommonBridgeModule.removeCookie(name, domain);
     }
   },
@@ -110,7 +111,7 @@ export const CommonBridge = {
    * 移除所有cookie
    */
   removeAllCookies() {
-    if (CommonBridgeModule.removeAllCookies) {
+    if (CommonBridgeModule && CommonBridgeModule.removeAllCookies) {
       CommonBridgeModule.removeAllCookies();
     }
   },
@@ -120,7 +121,7 @@ export const CommonBridge = {
    * @param cb
    */
   openPage(url: string, cb?: Callback) {
-    if (CommonBridgeModule.openPage) {
+    if (CommonBridgeModule && CommonBridgeModule.openPage) {
       CommonBridgeModule.openPage(url, cb);
     }
   },
@@ -128,7 +129,7 @@ export const CommonBridge = {
    * 原生端返回上一页
    */
   back(url: any | undefined, cb?: Callback) {
-    if (CommonBridgeModule.back) {
+    if (CommonBridgeModule && CommonBridgeModule.back) {
       CommonBridgeModule.back(url, cb);
     }
   },
@@ -138,7 +139,7 @@ export const CommonBridge = {
    * @param cb
    */
   popToRoot(url: any | undefined, cb?: Callback) {
-    if (CommonBridgeModule.popToRoot) {
+    if (CommonBridgeModule && CommonBridgeModule.popToRoot) {
       CommonBridgeModule.popToRoot(url, cb);
     }
   },
@@ -164,7 +165,7 @@ export const UserBridge = {
    * 跳转到native登录
    */
   jumpToLogin(instance: string | undefined, cb?: Callback) {
-    if (UserBridgeModule.jumpToLogin) {
+    if (UserBridgeModule && UserBridgeModule.jumpToLogin) {
       UserBridgeModule.jumpToLogin(instance, cb);
     }
   },
@@ -174,8 +175,38 @@ export const UserBridge = {
    * @param cb
    */
   updateUserInfo(info: any | undefined, cb?: Callback) {
-    if (UserBridgeModule.updateUserInfo) {
+    if (UserBridgeModule && UserBridgeModule.updateUserInfo) {
       UserBridgeModule.updateUserInfo(info, cb);
+    }
+  },
+};
+
+export const DeviceBridge = {
+  /**
+   * 设备唯一标识。用于打点，用户行为追踪
+   */
+  get deviceId() {
+    return getNonullProperty(DeviceBridgeModule, 'deviceId');
+  },
+  /**
+   * 设备运行内存(RAM)。用于大列表性能优化（安卓专用）
+   */
+  get deviceMemory() {
+    return getNonullProperty(DeviceBridgeModule, 'deviceMemory');
+  },
+  /**
+   * 设备认证型号。如：iPhone14,4、M2102J2SC（小米10）
+   */
+  get deviceModel() {
+    return getNonullProperty(DeviceBridgeModule, 'deviceModel');
+  },
+  /**
+   * 调起相机扫描二维码
+   * @param cb
+   */
+  scanQRCode(cb: Callback) {
+    if (DeviceBridgeModule && DeviceBridgeModule.scanQRCode) {
+      DeviceBridgeModule.scanQRCode(cb);
     }
   },
 };
