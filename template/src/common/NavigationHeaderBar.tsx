@@ -16,11 +16,11 @@ export const BarHeaderTitle = (props: any) => {
 };
 
 export const BarBackButton = (props: any) => {
-  return <IconButton type={FontType.materialIcons} name={'keyboard-backspace'} style={styles.backBtn} onPress={props.onPress} />;
+  return <IconButton type={FontType.materialIcons} name={'keyboard-backspace'} style={styles.backBtn} {...props} />;
 };
 
 export const BarSettingButton = (props: any) => {
-  return <IconButton type={FontType.materialCommunityIcons} name={'dots-vertical'} style={styles.setBtn} onPress={props.onPress} />;
+  return <IconButton type={FontType.materialCommunityIcons} name={'dots-vertical'} style={styles.setBtn} {...props} />;
 };
 
 BarHeaderTitle.propTypes = {
@@ -42,20 +42,20 @@ const styles = StyleSheet.create({
     width: '70%',
   },
   headerTitle: {
-    color: '#fff',
+    color: '#222',
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   headerSubtitle: {
-    color: '#e5e5e5',
+    color: '#888',
     fontSize: 11,
     fontWeight: 'normal',
   },
   backBtn: {
-    marginLeft: 13,
+    marginLeft: 5,
   },
   setBtn: {
-    marginRight: 13,
+    marginRight: 5,
   },
 });

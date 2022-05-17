@@ -30,7 +30,7 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
 
   // ------------------------ 自定义视图 ----------------------------------------
   renderHeaderLeft = (): React.ReactNode => {
-    return <BarBackButton onPress={this.back} />;
+    return <BarBackButton color={'#222'} onPress={this.back} />;
   };
 
   /**

@@ -16,8 +16,7 @@ const AppNavContainer = () => {
     <Stack.Navigator
       screenOptions={{
         title: '零洞',
-        headerTransparent: true,
-        headerTintColor: '#fff',
+        headerTintColor: '#222',
         headerTitleStyle: {
           fontWeight: 'bold',
           // fontSize: 16,

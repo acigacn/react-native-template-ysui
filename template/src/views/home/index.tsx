@@ -9,6 +9,7 @@ export default class HomePage extends BasePage {
     super(props);
     this.state = {};
     this.props.navigation.setOptions({
+      headerTransparent: true,
       headerTitle: this.renderHeaderTitle,
       headerRight: this.renderHeaderRight,
     });
@@ -22,7 +23,7 @@ export default class HomePage extends BasePage {
     return <BarHeaderTitle {...props} />;
   };
   renderHeaderRight = (): React.ReactNode => {
-    return <BarSettingButton onPress={this.onHeaderRightPress} />;
+    return <BarSettingButton color={'#222'} onPress={this.onHeaderRightPress} />;
   };
 
   renderContent() {
