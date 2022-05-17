@@ -10,7 +10,7 @@ export const BarHeaderTitle = (props: any) => {
       <Text style={styles.headerTitle} numberOfLines={1}>
         {props.title}
       </Text>
-      <Text style={styles.headerSubtitle}>{props.subtitle}</Text>
+      {props.subtitle ? <Text style={styles.headerSubtitle}>{props.subtitle}</Text> : null}
     </View>
   );
 };
@@ -29,8 +29,8 @@ BarHeaderTitle.propTypes = {
 };
 
 BarHeaderTitle.defaultProps = {
-  title: '卧室温湿度',
-  subtitle: '已连接蓝牙网关',
+  title: '零洞智能',
+  subtitle: null,
 };
 
 const styles = StyleSheet.create({
