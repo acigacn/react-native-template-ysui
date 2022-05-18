@@ -8,7 +8,6 @@ import NavigatorHelper from '@helps/NavigatorHelper';
 export default class BasePage extends React.Component<BasePageProps, BasePageState> {
   constructor(props) {
     super(props);
-    this.state = {};
     this.props.navigation.setOptions({
       headerLeft: this.renderHeaderLeft,
     });
@@ -43,7 +42,7 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
   render() {
     return (
       <>
-        <AppStatusBar />
+        <AppStatusBar barStyle={this.state.statusBarStyle} />
         <View style={styles.container}>{this.renderContent()}</View>
       </>
     );

@@ -10,6 +10,7 @@ export interface BasePageState {
   title?: string;
   dataLoadState?: -1 | 0 | 1;
   isConnected?: boolean;
+  statusBarStyle?: 'default' | 'light-content' | 'dark-content';
 }
 
 export interface PageOptions {

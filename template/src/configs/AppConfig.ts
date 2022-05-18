@@ -12,7 +12,7 @@ export default {
     translucent: false,
 
     // enum('default', 'light-content', 'dark-content')
-    barStyle: 'light-content',
+    barStyle: 'dark-content',
 
     networkActivityIndicatorVisible: false,
 
