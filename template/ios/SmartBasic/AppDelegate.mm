@@ -41,7 +41,14 @@
   bridge.surfacePresenter = _bridgeAdapter.surfacePresenter;
 #endif
 
-  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"SmartBasic", nil);
+  NSDictionary *initialProperties = @{
+    @"instance": @"123456789",
+    @"bridge": bridge.bundleURL.absoluteString,
+  };
+  
+  NSLog(@"initialProperties is ===== %@ ", initialProperties);
+  
+  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"SmartBasic", initialProperties);
 
   if (@available(iOS 13.0, *)) {
     rootView.backgroundColor = [UIColor systemBackgroundColor];

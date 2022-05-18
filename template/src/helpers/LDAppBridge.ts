@@ -33,7 +33,7 @@ export const CommonBridge = {
     return getNonullProperty(CommonBridgeModule, 'appName');
   },
   /**
-   * 应用沙盒路径，用于通过file协议读取本地图片地址
+   * 插件应用沙盒路径，用于通过file协议读取本地图片地址
    */
   get bundlePath(): string {
     return getNonullProperty(CommonBridgeModule, 'bundlePath');
@@ -133,7 +133,7 @@ export const CommonBridge = {
     }
   },
   /**
-   * 返回都原生端root页
+   * 返回原生端BottomTabBar的根节点
    * @param url
    * @param cb
    */
