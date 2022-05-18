@@ -11,7 +11,7 @@ export default {
       return RootNavigation.goBack();
     }
     console.log('原生返回,退出RCTViewController');
-    CommonBridge.back(null);
+    CommonBridge.back();
   },
   backToRootPage() {
     RootNavigation.popToTop();
