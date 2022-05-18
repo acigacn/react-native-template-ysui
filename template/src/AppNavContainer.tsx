@@ -1,6 +1,7 @@
 import React from 'react';
 import Pages, {rootPage} from '@views/index';
 
+
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
@@ -17,10 +18,14 @@ const AppNavContainer = () => {
       screenOptions={{
         title: '零洞',
         headerTintColor: '#222',
+        headerTitleAlign: 'center',
         headerTitleStyle: {
           fontWeight: 'bold',
-          // fontSize: 16,
+          fontSize: 16,
         },
+        animationTypeForReplace: 'pop',
+        animation: 'slide_from_right',
+        presentation: 'card',
       }}
       initialRouteName={rootPage}>
       {generateStackScreens()}
