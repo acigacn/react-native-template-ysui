@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {navigationRef} from '@comms/RootNavigation';
-import LocalStorage from '@helps/LocalStorage';
+import StorageManager from '@helps/StorageManager';
 import AppNavContainer from './AppNavContainer';
 
 /**
@@ -10,9 +10,11 @@ import AppNavContainer from './AppNavContainer';
  */
 const prepareAppData = (props: any) => {
   try {
-    LocalStorage.setItem('initialProps', JSON.stringify(props));
+    if (props && (typeof props === 'object' || typeof props === 'string')) {
+      StorageManager.setItem('initialProps', props);
+    }
   } catch (error) {
-    console.log(error);
+    console.log('prepareAppData', error);
   }
 };
 

@@ -2,7 +2,6 @@ import React from 'react';
 import {View} from 'react-native';
 import BasePage from '@views/base/BasePage';
 import {styles} from './style';
-import LocalStorage from '@helps/LocalStorage';
 
 export default class SettingsPage extends BasePage {
   constructor(props) {
@@ -12,10 +11,6 @@ export default class SettingsPage extends BasePage {
       title: '设置',
       headerTransparent: false,
     });
-  }
-
-  componentDidMount() {
-    console.log('initialProps is: ', LocalStorage.getItem('initialProps'));
   }
 
   renderContent() {
