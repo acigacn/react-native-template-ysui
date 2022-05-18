@@ -127,7 +127,7 @@ export const CommonBridge = {
   /**
    * 原生端返回上一页
    */
-  back(url: any | undefined, cb?: Callback) {
+  back(url?: string, cb?: Callback) {
     if (CommonBridgeModule && CommonBridgeModule.back) {
       CommonBridgeModule.back(url, cb);
     }
@@ -137,7 +137,7 @@ export const CommonBridge = {
    * @param url
    * @param cb
    */
-  popToRoot(url: any | undefined, cb?: Callback) {
+  popToRoot(url?: string, cb?: Callback) {
     if (CommonBridgeModule && CommonBridgeModule.popToRoot) {
       CommonBridgeModule.popToRoot(url, cb);
     }
@@ -163,19 +163,19 @@ export const UserBridge = {
   /**
    * 跳转到native登录
    */
-  jumpToLogin(instance: string | undefined, cb?: Callback) {
+  jumpToLogin(jsonData?: string | object, cb?: Callback) {
     if (UserBridgeModule && UserBridgeModule.jumpToLogin) {
-      UserBridgeModule.jumpToLogin(instance, cb);
+      UserBridgeModule.jumpToLogin(jsonData, cb);
     }
   },
   /**
    * 通知客户端更新用户信息
-   * @param info
+   * @param jsonData
    * @param cb
    */
-  updateUserInfo(info: any | undefined, cb?: Callback) {
+  updateUserInfo(jsonData?: string | object, cb?: Callback) {
     if (UserBridgeModule && UserBridgeModule.updateUserInfo) {
-      UserBridgeModule.updateUserInfo(info, cb);
+      UserBridgeModule.updateUserInfo(jsonData, cb);
     }
   },
 };
@@ -203,9 +203,9 @@ export const DeviceBridge = {
    * 调起相机扫描二维码
    * @param cb
    */
-  scanQRCode(cb: Callback) {
+  scanQRCode(options?: string | object, cb?: Callback) {
     if (DeviceBridgeModule && DeviceBridgeModule.scanQRCode) {
-      DeviceBridgeModule.scanQRCode(cb);
+      DeviceBridgeModule.scanQRCode(options, cb);
     }
   },
 };
