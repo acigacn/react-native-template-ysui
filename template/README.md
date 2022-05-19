@@ -27,6 +27,15 @@
 </pre>
 </details>
 
+### res
+
+> 避免跟框架自带目录重名，RN的资源目录用`res`。请勿随意更改
+
+本地图片等资源型文件，如果一定要放本地图，请务必先去压缩：https://tinypng.com/
+
+- img：本地图片资源，用本地图前先想想能否通过http引用，是不是必须要放在本地
+- json：预留资源，如lottie动画资源描述文件
+
 ## 项目分支
 
 建议采用：git-flow流程做分支管理
@@ -50,8 +59,16 @@ hooks安装成功后，项目根目录下会多出**.husky**，这个在提交co
 
 ## 打包发布
 
-全平台打包
+> 全平台打包
 
 `yarn run build:all`
 
-发布：https://b9nhtlfpd3.feishu.cn/wiki/wikcnhQ83JSbbSXBkMSlrdV04hf
+> 发布业务包
+
+具体操作参考wiki空间教程
+
+
+## 最佳实践
+
+- 字体库原生端集成：https://jishuin.proginn.com/p/763bfbd62a97
+

@@ -16,26 +16,6 @@
 react-native init MyApp --template https://github.com/acigacn/react-native-template-ysui
 ```
 
-### 开发 & 打包
-
-```sh
-# 使得编码检查和格式化在提交代码前自动修复
-yarn run dev:init
-
-# 打js bundle包
-yarn run build:all
-```
-
-### res
-
-> 避免跟框架自带目录重名，RN的资源目录用`res`。请勿随意更改
-
-本地图片等资源型文件，如果一定要放本地图，请务必先去压缩：https://tinypng.com/
-
-- img：本地图片资源，用本地图前先想想能否通过http引用，是不是必须要放在本地
-- json：预留资源，如lottie动画资源描述文件
-
-
 ## 内置的三方库
 
 | 名称                                                         | 版本号  | 功能                                              |
@@ -50,13 +30,4 @@ yarn run build:all
 | [react-native-linear-gradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient)                      | ^2.5.6 | 渐变色                           |
 | [axios](https://github.com/axios/axios)                      | ^0.27.2 | 基于Promise的http请求库                           |
 | [lodash](https://github.com/lodash/lodash)                      | ^4.17.21 | JS工具库                           |
-
-
-
-
-
-## 最佳实践
-
-- 字体库原生端集成：https://jishuin.proginn.com/p/763bfbd62a97
-
 
