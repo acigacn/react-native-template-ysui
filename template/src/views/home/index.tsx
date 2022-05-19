@@ -15,8 +15,13 @@ export default class HomePage extends BasePage {
     });
   }
 
+  openNativePageTest() {
+    this.openPage('SettingsPage', {age: 10, name: 'thomas', region: '中国'}, {native: true});
+  }
+
   onHeaderRightPress = () => {
     this.openPage('SettingsPage');
+    // this.openNativePageTest();
   };
 
   renderHeaderTitle = (props): React.ReactNode => {
