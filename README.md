@@ -45,7 +45,8 @@ yarn run build:all
 | [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler) | ^2.4.1  | 手势库，在React Native中构建最佳的基于触摸的体验  |
 | [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) | ^2.8.0 | 动画库，提高复杂动画性能                          |
 | [lottie-react-native](https://github.com/lottie-react-native/lottie-react-native) | ^5.1.1  | 动画库                   
-| [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) | ^9.1.0  | 字体图标库                                        
+| [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) | ^9.1.0  | 字体图标库
+| [@react-native-async-storage/async-storage](https://github.com/react-native-async-storage/async-storage) | ^1.17.4  | 本地缓存支持                                        
 | [react-native-linear-gradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient)                      | ^2.5.6 | 渐变色                           |
 | [axios](https://github.com/axios/axios)                      | ^0.27.2 | 基于Promise的http请求库                           |
 | [lodash](https://github.com/lodash/lodash)                      | ^4.17.21 | JS工具库                           |
@@ -57,3 +58,5 @@ yarn run build:all
 ## 最佳实践
 
 - 字体库原生端集成：https://jishuin.proginn.com/p/763bfbd62a97
+
+
