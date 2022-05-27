@@ -1,4 +1,4 @@
-const tintColor = '#1E90FF';
+const tintColor = '#fff';
 
 /**
  * App整体配色
@@ -6,7 +6,7 @@ const tintColor = '#1E90FF';
 export default {
   tintColor,
   tabIconDefault: '#ccc',
-  tabIconSelected: tintColor,
+  tabIconSelected: '#4ECBFC',
   tabBar: '#fefefe',
   errorBackground: 'red',
   errorText: '#fff',

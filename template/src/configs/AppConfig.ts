@@ -6,7 +6,7 @@ export default {
 
   // App StatusBar config here.
   statusBar: {
-    animated: true,
+    animated: false,
     hidden: false,
     backgroundColor: Colors.tintColor,
     translucent: false,
@@ -15,8 +15,5 @@ export default {
     barStyle: 'dark-content',
 
     networkActivityIndicatorVisible: false,
-
-    //enum('fade', 'slide')
-    showHideTransition: 'slide',
   },
 };
