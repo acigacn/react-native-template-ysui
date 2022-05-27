@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import AppStatusBar from '@comms/widgets/AppStatusBar';
-import {BarBackButton} from '@comms/NavigationHeaderBar';
+import {NavHeaderView, BarBackButton} from '@comms/NavigationHeaderBar';
 import {BasePageProps, BasePageState, PageOptions} from './types';
 import NavigatorHelper from '@helps/NavigatorHelper';
 
@@ -9,6 +9,7 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
   constructor(props) {
     super(props);
     this.props.navigation.setOptions({
+      // header: this.renderCustomizedHeader,
       headerLeft: this.renderHeaderLeft,
     });
   }
@@ -28,6 +29,10 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
   };
 
   // ------------------------ 自定义视图 ----------------------------------------
+  renderCustomizedHeader = (props): React.ReactNode => {
+    return <NavHeaderView {...props} />;
+  };
+
   renderHeaderLeft = (): React.ReactNode => {
     return <BarBackButton color={'#222'} onPress={this.back} />;
   };
@@ -41,17 +46,10 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
 
   render() {
     return (
-      <>
+      <SafeAreaView edges={['top', 'left', 'right']} style={{flex: 1, backgroundColor: '#fff'}}>
         <AppStatusBar barStyle={this.state.statusBarStyle} />
-        <View style={styles.container}>{this.renderContent()}</View>
-      </>
+        {this.renderContent()}
+      </SafeAreaView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});

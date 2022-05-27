@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {navigationRef} from '@comms/RootNavigation';
 import StorageManager from '@helps/StorageManager';
 import AppNavContainer from './AppNavContainer';
@@ -21,9 +22,11 @@ const prepareAppData = (props: any) => {
 const App = (props: any) => {
   prepareAppData(props);
   return (
-    <NavigationContainer ref={navigationRef}>
-      <AppNavContainer />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer ref={navigationRef}>
+        <AppNavContainer />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 

@@ -9,7 +9,6 @@ export default class SettingsPage extends BasePage {
     this.state = {};
     this.props.navigation.setOptions({
       title: '设置',
-      headerTransparent: false,
     });
   }
 

@@ -19,6 +19,8 @@ const AppNavContainer = () => {
         title: '零洞',
         headerTintColor: '#222',
         headerTitleAlign: 'center',
+        headerShown: true,
+        headerTransparent: false,
         headerTitleStyle: {
           fontWeight: 'bold',
           fontSize: 16,
