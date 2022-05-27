@@ -1,4 +1,5 @@
 import React from 'react';
+import {Platform} from 'react-native';
 import Pages, {rootPage} from '@views/index';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -24,7 +25,10 @@ const AppNavContainer = () => {
         },
         animationTypeForReplace: 'pop',
         animation: 'slide_from_right',
-        presentation: 'card',
+        presentation: Platform.select({
+          ios: 'card',
+          android: 'transparentModal',
+        }),
       }}
       initialRouteName={rootPage}>
       {generateStackScreens()}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import BasePage from '@views/base/BasePage';
 import {styles} from './style';
 import {BarHeaderTitle, BarSettingButton} from '@comms/NavigationHeaderBar';
@@ -9,7 +9,6 @@ export default class HomePage extends BasePage {
     super(props);
     this.state = {};
     this.props.navigation.setOptions({
-      headerTransparent: true,
       headerTitle: this.renderHeaderTitle,
       headerRight: this.renderHeaderRight,
     });
@@ -32,6 +31,15 @@ export default class HomePage extends BasePage {
   };
 
   renderContent() {
-    return <View style={styles.pageContainer} />;
+    return (
+      <View style={styles.pageContainer}>
+        <View style={styles.status}>
+          <Text style={styles.tip}>设备状态信息区</Text>
+        </View>
+        <View style={styles.controlBar}>
+          <Text style={styles.tip}>设备状态控制区</Text>
+        </View>
+      </View>
+    );
   }
 }
