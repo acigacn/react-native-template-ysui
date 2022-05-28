@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TouchableHighlight} from 'react-native';
+import {TouchableHighlight} from 'react-native';
 import PropTypes from 'prop-types';
 import IconType, {FontType} from '@conts/IconType';
 
@@ -11,10 +11,10 @@ import IconType, {FontType} from '@conts/IconType';
 const IconButton = props => {
   const {name, color, size, style, onPress, type, disabled} = props;
   const Icon = IconType(type);
-  const iconElement = <Icon name={name} color={color || 'white'} size={size || 26} style={style} />;
+  const iconElement = <Icon name={name} color={color || 'black'} size={size || 24} />;
   return (
-    <TouchableHighlight underlayColor={'transparent'} disabled={disabled} onPress={onPress}>
-      <View>{iconElement}</View>
+    <TouchableHighlight style={style} underlayColor={'transparent'} disabled={disabled} onPress={onPress}>
+      <>{iconElement}</>
     </TouchableHighlight>
   );
 };

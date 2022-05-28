@@ -1,17 +1,13 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import AppStatusBar from '@comms/widgets/AppStatusBar';
-import {NavHeaderView, BarBackButton} from '@comms/NavigationHeaderBar';
+import {NavHeaderView} from '@comms/NavigationHeaderBar';
 import {BasePageProps, BasePageState, PageOptions} from './types';
 import NavigatorHelper from '@helps/NavigatorHelper';
 
 export default class BasePage extends React.Component<BasePageProps, BasePageState> {
   constructor(props) {
     super(props);
-    this.props.navigation.setOptions({
-      // header: this.renderCustomizedHeader,
-      headerLeft: this.renderHeaderLeft,
-    });
   }
 
   // ------------------------ 统一处理页面溃退、打开、替换 --------------------------------------
@@ -29,12 +25,8 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
   };
 
   // ------------------------ 自定义视图 ----------------------------------------
-  renderCustomizedHeader = (props): React.ReactNode => {
-    return <NavHeaderView {...props} />;
-  };
-
-  renderHeaderLeft = (): React.ReactNode => {
-    return <BarBackButton color={'#222'} onPress={this.back} />;
+  renderCustomizedHeader = (): React.ReactNode => {
+    return <NavHeaderView />;
   };
 
   /**
@@ -48,6 +40,7 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
     return (
       <SafeAreaView edges={['top', 'left', 'right']} style={{flex: 1, backgroundColor: '#fff'}}>
         <AppStatusBar barStyle={this.state.statusBarStyle} />
+        {this.renderCustomizedHeader()}
         {this.renderContent()}
       </SafeAreaView>
     );

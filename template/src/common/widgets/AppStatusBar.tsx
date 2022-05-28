@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {Platform, StatusBar, View} from 'react-native';
 import PropTypes from 'prop-types';
 import AppConfig from '@confs/AppConfig';
-import GlobalStyles from '@conts/GlobalStyles';
+import CommonStyles from '@comms/CommonStyles';
 
 export default class AppStatusBar extends PureComponent {
   static propTypes = {
@@ -20,7 +20,7 @@ export default class AppStatusBar extends PureComponent {
     if (Platform.OS === 'ios' || Platform.OS === 'android') {
       return <StatusBar {...this.props} />;
     } else {
-      return <View style={[GlobalStyles.statusBar, {backgroundColor: backgroundColor}]} />;
+      return <View style={[CommonStyles.statusBar, {backgroundColor: backgroundColor}]} />;
     }
   }
 }

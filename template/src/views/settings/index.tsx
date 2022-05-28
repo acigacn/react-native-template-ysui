@@ -7,9 +7,6 @@ export default class SettingsPage extends BasePage {
   constructor(props) {
     super(props);
     this.state = {};
-    this.props.navigation.setOptions({
-      title: '设置',
-    });
   }
 
   renderContent() {

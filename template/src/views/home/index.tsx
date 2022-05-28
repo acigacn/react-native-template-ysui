@@ -2,16 +2,20 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import BasePage from '@views/base/BasePage';
 import {styles} from './style';
-import {BarHeaderTitle, BarSettingButton} from '@comms/NavigationHeaderBar';
 
 export default class HomePage extends BasePage {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.props.navigation.setOptions({
-      headerTitle: this.renderHeaderTitle,
-      headerRight: this.renderHeaderRight,
-    });
+    this.state = {
+      title: '这是首页',
+      headerTintColor: '#222',
+      headerShown: false,
+      headerTransparent: true,
+      headerTitleStyle: {
+        fontSize: 15,
+        color: '#222',
+      },
+    };
   }
 
   openNativePageTest() {
@@ -21,13 +25,6 @@ export default class HomePage extends BasePage {
   onHeaderRightPress = () => {
     this.openPage('SettingsPage');
     // this.openNativePageTest();
-  };
-
-  renderHeaderTitle = (props): React.ReactNode => {
-    return <BarHeaderTitle {...props} title={'XX智能设备'} subtitle={'蓝牙已连接'} subTitleStyles={{color: 'green'}} />;
-  };
-  renderHeaderRight = (): React.ReactNode => {
-    return <BarSettingButton color={'#222'} onPress={this.onHeaderRightPress} />;
   };
 
   renderContent() {

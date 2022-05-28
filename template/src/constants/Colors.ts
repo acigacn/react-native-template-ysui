@@ -1,10 +1,12 @@
-const tintColor = '#fff';
+const tintColor = '#222';
+const backgroundColor = '#fff';
 
 /**
  * App整体配色
  */
 export default {
   tintColor,
+  backgroundColor,
   tabIconDefault: '#ccc',
   tabIconSelected: '#4ECBFC',
   tabBar: '#fefefe',
