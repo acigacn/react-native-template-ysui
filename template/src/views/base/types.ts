@@ -7,10 +7,17 @@ export interface BasePageProps {
 }
 
 export interface BasePageState {
-  title?: string;
   dataLoadState?: -1 | 0 | 1;
   isConnected?: boolean;
+  backgroundColor?: string;
   statusBarStyle?: 'default' | 'light-content' | 'dark-content';
+  headerBarShown?: boolean;
+  titleBar?: {
+    title?: string;
+    subtitle?: string;
+    titleStyles?: object;
+    subTitleStyles?: object;
+  };
 }
 
 export interface PageOptions {

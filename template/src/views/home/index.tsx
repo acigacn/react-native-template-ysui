@@ -2,30 +2,27 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import BasePage from '@views/base/BasePage';
 import {styles} from './style';
+import {SettingBarButton} from '@comms/NavigationBarButton';
 
 export default class HomePage extends BasePage {
   constructor(props) {
     super(props);
     this.state = {
-      title: '这是首页',
-      headerTintColor: '#222',
-      headerShown: false,
-      headerTransparent: true,
-      headerTitleStyle: {
-        fontSize: 15,
-        color: '#222',
+      titleBar: {
+        title: '主标题（页面名称）',
+        subtitle: '副标题（设备状态）',
       },
+      backgroundColor: 'lightgreen',
     };
   }
 
-  openNativePageTest() {
-    this.openPage('SettingsPage', {age: 10, name: 'thomas', region: '中国'}, {native: true});
-  }
-
-  onHeaderRightPress = () => {
+  onSettingBarPress = () => {
+    // this.openPage('SettingsPage', {age: 10, name: 'thomas', region: '中国'}, {native: true});
     this.openPage('SettingsPage');
-    // this.openNativePageTest();
   };
+  renderHeaderRightBar() {
+    return <SettingBarButton onPress={this.onSettingBarPress} />;
+  }
 
   renderContent() {
     return (

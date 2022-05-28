@@ -2,6 +2,9 @@ import {Platform} from 'react-native';
 import Colors from '@conts/Colors';
 
 export default {
+  // 主背景色
+  mainBgColor: Colors.backgroundColor,
+
   // font scaling override - RN default is on
   allowTextFontScaling: true,
 

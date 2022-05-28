@@ -6,7 +6,11 @@ import {styles} from './style';
 export default class SettingsPage extends BasePage {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      titleBar: {
+        title: '设置',
+      },
+    };
   }
 
   renderContent() {

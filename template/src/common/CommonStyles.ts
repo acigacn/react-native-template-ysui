@@ -18,7 +18,6 @@ const CommonStyles = {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'stretch',
-      // backgroundColor: 'blue',
     },
     titleContainer: {
       display: 'flex',

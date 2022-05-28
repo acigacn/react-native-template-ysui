@@ -1,11 +1,39 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import IconButton from './widgets/IconButton';
 import PropTypes from 'prop-types';
-import {FontType} from '@conts/IconType';
+import AppConfig from '@confs/AppConfig';
 import CommonStyles from '@comms/CommonStyles';
 
-export const BarHeaderTitle = (props: any) => {
+/**
+ * 导航左边按钮
+ * @param props {renderView: func}
+ * @returns React.ReactNode
+ */
+export const LeftBarButton = (props: any) => {
+  if (props.renderView && typeof props.renderView === 'function') {
+    return props.renderView();
+  }
+  return <View style={CommonStyles.navHeader.barBtn} />;
+};
+
+/**
+ * 导航右边按钮
+ * @param props {renderView: func}
+ * @returns React.ReactNode
+ */
+export const RightBarButton = (props: any) => {
+  if (props.renderView && typeof props.renderView === 'function') {
+    return props.renderView();
+  }
+  return <View style={CommonStyles.navHeader.barBtn} />;
+};
+
+/**
+ * 自定义的导航标题视图
+ * @param props {title: string, subtitle: string, titleStyles: object, subtitleStyles: object}
+ * @returns React.ReactNode
+ */
+export const HeaderTitleBarView = (props: any) => {
   const titleStyles = [CommonStyles.navHeader.titleText];
   if (props.titleStyles && typeof props.titleStyles === 'object') {
     titleStyles.push(props.titleStyles);
@@ -23,38 +51,60 @@ export const BarHeaderTitle = (props: any) => {
     </View>
   );
 };
-BarHeaderTitle.propTypes = {
+HeaderTitleBarView.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   titleStyles: PropTypes.object,
   subTitleStyles: PropTypes.object,
 };
-BarHeaderTitle.defaultProps = {
+HeaderTitleBarView.defaultProps = {
   title: '零洞智能设备',
-  subtitle: '蓝牙设备已连接',
+  subtitle: null,
 };
 
-export const BarBackButton = (props: any) => {
-  return <IconButton type={FontType.materialIcons} name={'keyboard-backspace'} style={CommonStyles.navHeader.barBtn} {...props} />;
-};
-BarBackButton.propTypes = {
-  ...IconButton.propTypes,
-};
-
-export const BarSettingButton = (props: any) => {
-  return <IconButton type={FontType.materialCommunityIcons} name={'dots-vertical'} style={CommonStyles.navHeader.barBtn} {...props} />;
-};
-BarSettingButton.propTypes = {
-  ...IconButton.propTypes,
-};
-
-export const NavHeaderView = (props: any) => {
-  console.log('NavHeaderView props', props);
+/**
+ * 自定义导航
+ * @param props {leftBar: object, rightBar: object, titleBar: object, backgroundColor: string}
+ * @returns React.ReactNode
+ */
+export const NavigationHeaderBar = (props: any) => {
+  if (AppConfig.defaultNavigatorScreenOptions.headerShown || !props.headerBarShown) {
+    // 使用系统自带的导航栏就不用自定义导航栏了
+    return null;
+  }
   return (
-    <View style={[CommonStyles.navHeader.headerContainer, {marginTop: 0}]}>
-      <BarBackButton />
-      <BarHeaderTitle />
-      <BarSettingButton />
+    <View style={[CommonStyles.navHeader.headerContainer, {backgroundColor: props.backgroundColor}]}>
+      <LeftBarButton renderView={props.renderLeftBar} />
+      <HeaderTitleBarView {...props.titleBar} />
+      <RightBarButton renderView={props.renderRightBar} />
     </View>
   );
+};
+NavigationHeaderBar.propTypes = {
+  /**
+   * 标题组件属性集
+   */
+  titleBar: PropTypes.shape({...HeaderTitleBarView.propTypes}),
+  /**
+   * 导航背景色，默认为白色
+   */
+  backgroundColor: PropTypes.string,
+  /**
+   * 自定义导航栏是否可见。默认为true
+   */
+  headerBarShown: PropTypes.bool,
+  /**
+   * 自定义返回按钮组件
+   */
+  renderLeftBar: PropTypes.func,
+  /**
+   * 自定义右边按钮组件
+   */
+  renderRightBar: PropTypes.func,
+};
+NavigationHeaderBar.defaultProps = {
+  backgroundColor: AppConfig.mainBgColor,
+  headerBarShown: true,
+  renderLeftBar: null,
+  renderRightBar: null,
 };
