@@ -5,27 +5,19 @@ import AppConfig from '@confs/AppConfig';
 import CommonStyles from '@comms/CommonStyles';
 
 /**
- * 导航左边按钮
+ * 导航按钮
  * @param props {renderView: func}
  * @returns React.ReactNode
  */
-export const LeftBarButton = (props: any) => {
-  if (props.renderView && typeof props.renderView === 'function') {
-    return props.renderView();
+export const BarButtonView = (props: any) => {
+  let leftBar = props.renderView();
+  if (!leftBar) {
+    leftBar = <View style={CommonStyles.navHeader.barBtn} />;
   }
-  return <View style={CommonStyles.navHeader.barBtn} />;
+  return leftBar;
 };
-
-/**
- * 导航右边按钮
- * @param props {renderView: func}
- * @returns React.ReactNode
- */
-export const RightBarButton = (props: any) => {
-  if (props.renderView && typeof props.renderView === 'function') {
-    return props.renderView();
-  }
-  return <View style={CommonStyles.navHeader.barBtn} />;
+BarButtonView.propTypes = {
+  renderView: PropTypes.func,
 };
 
 /**
@@ -74,9 +66,9 @@ export const NavigationHeaderBar = (props: any) => {
   }
   return (
     <View style={[CommonStyles.navHeader.headerContainer, {backgroundColor: props.backgroundColor}]}>
-      <LeftBarButton renderView={props.renderLeftBar} />
+      <BarButtonView renderView={props.renderLeftBar} />
       <HeaderTitleBarView {...props.titleBar} />
-      <RightBarButton renderView={props.renderRightBar} />
+      <BarButtonView renderView={props.renderRightBar} />
     </View>
   );
 };

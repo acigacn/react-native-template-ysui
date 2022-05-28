@@ -14,7 +14,6 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
 
   // ------------------------ 统一处理页面溃退、打开、替换 --------------------------------------
   back = () => {
-    console.log('backPage ...');
     NavigatorHelper.backPage();
   };
   backToRoot = () => {
@@ -27,29 +26,18 @@ export default class BasePage extends React.Component<BasePageProps, BasePageSta
     NavigatorHelper.replacePage(page, params);
   };
 
-  // ------------------------ 自定义导航栏组件 ----------------------------------------
-  renderHeaderLeftBar() {
+  // ------------------------ 自定义导航栏组件 开始------------------------------//
+  renderHeaderLeftBar = (): React.ReactNode => {
     return <BackBarButton onPress={this.back} />;
-  }
-  renderHeaderRightBar() {
-    console.log('renderHeaderRightBar 请在子类重载使用');
-  }
-  renderCustomizedHeader() {
-    const {backgroundColor, titleBar, headerBarShown} = this.state;
-    const headerProps = {
-      backgroundColor,
-      headerBarShown,
-      titleBar: {
-        title: titleBar?.title,
-        subtitle: titleBar?.subtitle,
-        titleStyles: titleBar?.titleStyles,
-        subTitleStyles: titleBar?.subTitleStyles,
-      },
-      renderLeftBar: this.renderHeaderLeftBar,
-      renderRightBar: this.renderHeaderRightBar,
-    };
-    return <NavigationHeaderBar {...headerProps} />;
-  }
+  };
+  renderHeaderRightBar = (): React.ReactNode => {
+    return null;
+  };
+  renderCustomizedHeader = (): React.ReactNode => {
+    const {headerBarShown, backgroundColor, titleBar} = this.state;
+    return <NavigationHeaderBar headerBarShown={headerBarShown} backgroundColor={backgroundColor} titleBar={titleBar} renderLeftBar={this.renderHeaderLeftBar} renderRightBar={this.renderHeaderRightBar} />;
+  };
+  // ------------------------ 自定义导航栏组件 结束------------------------------//
 
   /**
    * 页面内容渲染，用子类去覆盖。此处勿动！

@@ -12,7 +12,6 @@ export default class HomePage extends BasePage {
         title: '主标题（页面名称）',
         subtitle: '副标题（设备状态）',
       },
-      backgroundColor: 'lightgreen',
     };
   }
 
@@ -20,9 +19,9 @@ export default class HomePage extends BasePage {
     // this.openPage('SettingsPage', {age: 10, name: 'thomas', region: '中国'}, {native: true});
     this.openPage('SettingsPage');
   };
-  renderHeaderRightBar() {
+  renderHeaderRightBar = () => {
     return <SettingBarButton onPress={this.onSettingBarPress} />;
-  }
+  };
 
   renderContent() {
     return (
