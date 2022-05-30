@@ -7,6 +7,7 @@
     "email": "aciga2018@126.com"
   },
   "scripts": {
+    "preinstall": "npx only-allow yarn",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
